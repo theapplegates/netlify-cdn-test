@@ -1,0 +1,10 @@
+<!doctype html><title>Page title</title><p>Hi</p>
+{% set somePhotos = [
+  {url: "christoph-nolte-whoo-owl.jpg", credit: "christoph-nolte", creditURL: "https://unsplash.com/photos/a-close-up-of-an-owl-with-yellow-eyes-t-FWwflH0uA?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"}
+] %}
+<section class="post-teaser">
+{%- for photo in somePhotos %}
+  <div class="credit">By <a href="{{ photo.creditURL }}" target="_BLANK" rel="noopener"> {{ photo.credit }}</a>, (<a href="/images/original/{{ photo.url }}" target="_BLANK" rel="noopener">Original</a>)</div>
+  {% lazypicture photo.url, "An Owl" %}
+{%- endfor -%}
+</section >
